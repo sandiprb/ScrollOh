@@ -8,7 +8,6 @@ class Article extends React.Component{
 	render(){
 		let article = this.props.articles
 		article = article[0]
-		console.log(this.props.articles)
 		return(
 			<article className="article clearfix">
 				<div className="wrapper col-sm-10 col-sm-offset-1 clearfix">

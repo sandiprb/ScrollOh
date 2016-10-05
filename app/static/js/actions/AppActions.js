@@ -2,10 +2,14 @@ import dispatcher from '../dispatcher/dispatcher';
 import AppConstants from '../constants/AppConstants';
 
 const AppActions = {
-	getVenues: function (data) {
+	getVenues: function () {
 		dispatcher.dispatch({
-			type: AppConstants.GET_ARTICLES,
-			data: data
+			type: AppConstants.GET_ARTICLES
+		})
+	},
+	loadOnScroll: function () {
+		dispatcher.dispatch({
+			type: AppConstants.LOAD_ON_SCROLL,
 		})
 	}
 }
