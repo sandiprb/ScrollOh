@@ -4,6 +4,11 @@ var csrf = require('csurf');
 var request = require('request');
 var ENDPOINTS = require('../credentials/credentials');
 
+/*--------- TEMP ---------*/
+var path = require('path')
+var fs = require('fs');
+/*--------- TEMP ---------*/
+
 var csrfProtect = csrf();
 router.use(csrfProtect)
 
@@ -13,6 +18,11 @@ router.get('/', function(req, res, next){
 
 /* GET venues api. */
 router.post('/', function(req, res, next) {
+	/*var dummyData = path.join(__dirname +'/../../todelete/dummyData.json')
+	var data = JSON.parse(fs.readFileSync(dummyData,'utf8'));
+	res.json(data)*/
+
+	/* //////////////////// COMMENTED WHILE IN DEV ///////////////////////*/
 	var options ={
 		url: ENDPOINTS.pages(),
 		include: true
@@ -21,7 +31,10 @@ router.post('/', function(req, res, next) {
 		if (!error && response.statusCode == 200) {
 			res.json(JSON.parse(body.replace('//', '')));
 		}
+	//////////////////// COMMENTED WHILE IN DEV ///////////////////////*/
 	})
+
+
 });
 
 module.exports = router;
