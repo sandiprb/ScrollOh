@@ -7,17 +7,17 @@ var autoprefixer = require('autoprefixer');
 gulp.task('build', function() {
 	var processors = [
 	require('postcss-mixins'),
-	atImport({path: ['./app/static/pcss']}),
+	atImport({path: ['./static/pcss']}),
 	require('postcss-simple-vars'),
 	require('postcss-nested'),
 	autoprefixer({browsers: ['last 2 version']}),
 	];
-	return gulp.src('./app/static/pcss/[^_]*.css')
+	return gulp.src('./static/pcss/[^_]*.css')
 	.pipe(postcss(processors))
-	.pipe(gulp.dest('./app/static/build/css'))
+	.pipe(gulp.dest('./static/build/css'))
 	});
 
 
 gulp.task('default', ['build'] , function () {
-	gulp.watch(['./app/static/pcss/*.css'],['build']);
+	gulp.watch(['./static/pcss/*.css'],['build']);
 	});
