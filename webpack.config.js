@@ -16,9 +16,9 @@ module.exports = {
 
 	output: {
 		path: STATIC_DIR + '/build/js/',
-		filename: '[name].js',
+		filename: '[name].[chunkhash].js',
 		chunkFilename: '[name].[chunkhash].js',
-		publicPath: '/app/static/'
+		publicPath: './static/'
 	},
 
 	module:{
@@ -33,7 +33,12 @@ module.exports = {
 		filename: 'chunk-manifest.json',
 		manifestVariable: 'webpackManifest'
 	})
-	] : [new webpack.optimize.OccurenceOrderPlugin(),
+	] : [new ManifestPlugin(),
+	new ChunkManifestPlugin({
+		filename: 'chunk-manifest.json',
+		manifestVariable: 'webpackManifest'
+	}),
+	new webpack.optimize.OccurenceOrderPlugin(),
 	new webpack.optimize.DedupePlugin(),
 	new webpack.optimize.OccurenceOrderPlugin(),
 	new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),
