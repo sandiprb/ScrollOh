@@ -5,7 +5,7 @@ var ChunkManifestPlugin = require('chunk-manifest-webpack-plugin');
 
 var debug = process.env.NODE_ENV !== 'production';
 
-const STATIC_DIR = path.join(__dirname, './app/static');
+const STATIC_DIR = path.join(__dirname, './static');
 
 module.exports = {
 	context: __dirname,

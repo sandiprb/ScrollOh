@@ -13,7 +13,7 @@ var routes = require('./routes/index');
 var app = express();
 
 // view engine setup
-app.set('views', path.join(process.env.PWD, 'app/templates'));
+app.set('views', path.join(process.env.PWD, 'templates'));
 app.set('view engine', 'html');
 app.engine('html', ejs.renderFile);
 
@@ -23,7 +23,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(process.env.PWD, 'app/static')));
+app.use(express.static(path.join(process.env.PWD, 'static')));
 app.use(session({secret: 'keyboard cat',
   resave: false,
   saveUninitialized: true
