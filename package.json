@@ -5,6 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node ./app/bin/www",
+    "postinstall": "gulp build && webpack",
     "watch": "webpack --progress --colors --watch "
   },
   "author": "Sandip baradiya",
