@@ -1,4 +1,3 @@
 /node_modules/**
 *.log
-app/static/js/build
-app/static/build
+/static/build/**

@@ -7,15 +7,17 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var csrf = require('csurf');
 
-var ejs = require('ejs')
 var routes = require('./routes/index');
+var nunjucks  = require('nunjucks');
 
 var app = express();
 
 // view engine setup
-app.set('views', path.join(process.env.PWD, 'templates'));
 app.set('view engine', 'html');
-app.engine('html', ejs.renderFile);
+nunjucks.configure(path.join(process.env.PWD, 'templates'), {
+    autoescape: true,
+    express: app
+});
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
