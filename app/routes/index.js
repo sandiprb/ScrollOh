@@ -4,7 +4,8 @@ var csrf = require('csurf');
 var fs = require('fs');
 var path = require('path')
 
-var chunkfilePath = path.join(__dirname +'/../static/build/js/manifest.json')
+var chunkfilePath = path.join(__dirname +'/../static/build/js/manifest.json') || path.join(process.env.PWD +'/../static/build/js/manifest.json')
+console.log(chunkfilePath);
 var chunkOutput = JSON.parse(fs.readFileSync(chunkfilePath,'utf8'));
 
 
@@ -13,7 +14,7 @@ router.use(csrfProtect)
 /* GET home page. */
 router.get('/', function(req, res, next) {
 	res.render('index',{
-		title: 'Look Around',
+		title: 'Scroll Oh!',
 		csrfToken: req.csrfToken(),
 		chunkOutput: chunkOutput['main.js']});
 });
