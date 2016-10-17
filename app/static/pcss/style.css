@@ -1,17 +1,16 @@
 @import "_settings.css";
-@import "_materialize.css";
-@import "_bootstrap.css";
+@import "_cards.css";
 
 body{
-	background-color: #fff;
+	background-color: $gray-lite;
 	color: #333;
 }
 
 article{
 	margin-top: 25px;
-	.wrapper{
-		padding-bottom: 20px;
-		border-bottom: 1px solid rgba(41,41,41,0.2);
+	.list_wrapper{
+		padding-top: 16px;
+		padding-bottom: 16px;
 	}
 	.author{
 		color: #9e9e9e;
