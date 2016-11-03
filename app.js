@@ -7,6 +7,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var csrf = require('csurf');
+var settings = require('./settings');
 
 var routes = require('./routes/index');
 var nunjucks  = require('nunjucks');
@@ -33,6 +34,8 @@ app.use(session({secret: 'keyboard cat',
 }))
 app.use(csrf())
 
+app.locals = settings
+console.log(app.locals)
 /*APP Routes*/
 app.use('/', routes);
 
